@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Navbar from "./component/Navbar";
+import "./component/style.css";
+import React from "react";
+import RecipeSearch from "./component/RecipeSearch";
+import { Route, Switch } from "react-router-dom";
+import RecipeDetails from "./component/RecipeDetails";
+import Categories from "./component/Categories"
+import Mealofday from "./component/Mealofday";
+import Home from "./component/Home";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Mealofday" component={Mealofday} />
+        <Route exact path="/RecipeSearch" component={RecipeSearch} />
+        <Route exact path="/RecipeDetails" component={RecipeDetails} />
+        <Route exact path="/Categories" component={Categories} />
+      </Switch>
     </div>
   );
 }
